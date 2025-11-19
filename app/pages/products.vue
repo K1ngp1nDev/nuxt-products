@@ -22,7 +22,7 @@ const handleCreateProduct = () => {
 	<UContainer class="py-10">
 		<div class="max-w-xl mx-auto space-y-8">
 			<div class="space-y-2 text-center">
-				<h1 class="text-2xl font-semibold">Список продуктів</h1>
+				<h1 class="text-2xl font-semibold">Список продуктів. <NuxtLink to="/" class="underline text-blue-600">🏠</NuxtLink></h1>
 				<p class="text-sm text-gray-500">
 					Додайте продукт у список — дані зберігаються в браузері (localStorage).
 				</p>
@@ -48,9 +48,13 @@ const handleCreateProduct = () => {
 			<div class="space-y-3">
 				<h2 class="text-lg font-medium">Продукти</h2>
 				
-				<UAlert v-if="!products.length" color="neutral" variant="subtle">
-					Список порожній. Додайте перший продукт ✨
-				</UAlert>
+				<UAlert
+					v-if="!products.length"
+					color="neutral"
+					variant="subtle"
+					title="Список порожній"
+					description="Додайте перший продукт."
+				/>
 				
 				<div v-else class="space-y-2">
 					<ProductItem
